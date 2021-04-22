@@ -11,6 +11,10 @@ public class User implements Serializable {
     private String avatar;
     private boolean somethingNotRead;
 
+    public void hidePassword(){
+        password = "";
+    }
+
     public User(long userId, long accountNumber, String password, int balance, String userName, String avatar, boolean somethingNotRead) {
         this.userId = userId;
         this.accountNumber = accountNumber;

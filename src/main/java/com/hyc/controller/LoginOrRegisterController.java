@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("login-or-register")
+//@RequestMapping("login-or-register")
 @RestController
 @CrossOrigin
 public class LoginOrRegisterController {
@@ -15,7 +15,7 @@ public class LoginOrRegisterController {
     @Qualifier("userServiceImpl")
     private UserService userService;
 
-    @PostMapping("/")
+    @PostMapping("/login-or-register")
     public ResultObj loginOrRegister(@RequestBody User user,int type){
         if (type == 0){
             //登录

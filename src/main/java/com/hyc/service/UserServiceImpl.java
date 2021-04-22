@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService{
             return new ResultObj(2);
         }else {
             if (user1.getPassword().equals(user.getPassword())){
+                user1.hidePassword();
                 return new ResultObj(1,user1);
             }else {
                 return new ResultObj(3);
@@ -56,6 +57,7 @@ public class UserServiceImpl implements UserService{
             user.setSomethingNotRead(false);
             int i = userMapper.insertUser(user);
             if (i == 1) {
+                user.hidePassword();
                 return new ResultObj(1,user);
             }else {
                 return new ResultObj(0);
