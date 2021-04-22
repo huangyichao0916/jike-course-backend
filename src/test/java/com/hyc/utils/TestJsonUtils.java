@@ -1,6 +1,5 @@
 package com.hyc.utils;
 
-import com.hyc.pojo.User;
 import org.junit.Test;
 
 import java.io.Serializable;

@@ -1,6 +1,5 @@
 package com.hyc.utils;
 
-import com.sun.tools.javac.code.Attribute;
 import org.junit.Test;
 
 public class TestConstsGetter {

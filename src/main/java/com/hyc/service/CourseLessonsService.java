@@ -1,7 +1,6 @@
 package com.hyc.service;
 
 import com.hyc.pojo.CourseLesson;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
