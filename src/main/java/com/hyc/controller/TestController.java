@@ -1,25 +1,26 @@
 package com.hyc.controller;
 
 import com.hyc.utils.JsonUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @ResponseBody
 @RestController
 public class TestController {
     @RequestMapping("/test")
-    public String testController(){
+    public String testController() {
         return JsonUtils.getSuccessFlag();
     }
 
     @RequestMapping("/jjj")
-    public Stu testController2(){
+    public Stu testController2(String time1,int id) {
+        System.out.println(time1);
+        System.out.println(id);
         return new Stu();
     }
 }
 
-class Stu{
+class Stu {
     private int id = 3;
     private String name = "黄毅超";
 
