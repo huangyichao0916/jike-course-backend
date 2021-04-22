@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.dao.CourseLessonMapper">
+    <insert id="insertCourseLesson" parameterType="CourseLesson">
+        INSERT INTO tbl_course_lessons ( id, title, author_name, author_desc, avatar, article_count, total_people_learn, price_market, price_sale )
+        VALUES (#{id},#{title},#{authorName},#{authorDesc},#{avatar},#{articleCount},#{totalPeopleLearn},#{priceMarket},#{priceSale})
+    </insert>
+    <select id="queryAllCourseLessons" resultType="CourseLesson">
+        SELECT * FROM tbl_course_lessons
+    </select>
+    <select id="queryCourseLessonsByLimit" resultType="CourseLesson">
+        SELECT * FROM tbl_course_lessons LIMIT #{start},#{counts}
+    </select>
+</mapper>

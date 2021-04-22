@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.dao.UserMapper">
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO tbl_users ( user_id, account_number, `password`, balance, user_name, avatar, something_not_read )
+        VALUES (#{userId},#{accountNumber},#{password},#{balance},#{userName},#{avatar},#{somethingNotRead})
+    </insert>
+    <select id="queryUserByAccountNumber" resultType="User">
+        SELECT * FROM tbl_users WHERE account_number = #{accountNumber}
+    </select>
+</mapper>
