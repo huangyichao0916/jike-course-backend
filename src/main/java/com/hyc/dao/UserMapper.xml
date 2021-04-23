@@ -10,4 +10,7 @@
     <select id="queryUserByAccountNumber" resultType="User">
         SELECT * FROM tbl_users WHERE account_number = #{accountNumber}
     </select>
+    <update id="recharge" >
+        UPDATE tbl_users AS u SET u.balance = u.balance + #{money}  WHERE u.user_id = #{userId}
+    </update>
 </mapper>

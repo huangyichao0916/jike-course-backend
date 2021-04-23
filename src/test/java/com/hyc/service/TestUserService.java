@@ -1,5 +1,6 @@
 package com.hyc.service;
 
+import com.hyc.pojo.RechargeRecord;
 import com.hyc.pojo.ResultObj;
 import com.hyc.pojo.User;
 import org.junit.Test;
@@ -27,5 +28,17 @@ public class TestUserService {
         user.setPassword("123");
         ResultObj login = userServiceImpl.login(user);
         System.out.println(login);
+    }
+    @Test
+    public void testRecharge(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserService bean = context.getBean("userServiceImpl", UserService.class);
+        RechargeRecord record = new RechargeRecord(37045072318L, 100);
+        try {
+            bean.recharge(record);
+        } catch (Exception e) {
+            System.out.println("出错了");
+            e.printStackTrace();
+        }
     }
 }
