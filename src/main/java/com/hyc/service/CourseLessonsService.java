@@ -11,4 +11,6 @@ public interface CourseLessonsService {
     List<CourseLesson> getAllCourseLessons();
     //查询限定数量的课程
     List<CourseLesson> getCourseLessonsByLimit(int start,int counts);
+    //查询用户购买的所有课程
+    List<CourseLesson> getCourseLessonsByUserId(long userId);
 }

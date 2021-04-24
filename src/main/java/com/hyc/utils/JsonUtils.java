@@ -37,8 +37,8 @@ public class JsonUtils {
         return getJson(new ResultObj(0));
     }
 
-    public static String getResultJson(int resultCode,Object obj){
-        return getJson(new ResultObj(resultCode,obj));
+    public static String getResultJson(int resultCode, Object obj) {
+        return getJson(new ResultObj(resultCode, obj));
     }
 }
 

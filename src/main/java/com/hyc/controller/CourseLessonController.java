@@ -1,6 +1,7 @@
 package com.hyc.controller;
 
 import com.hyc.pojo.CourseLesson;
+import com.hyc.pojo.ResultObj;
 import com.hyc.service.CourseLessonsService;
 import com.hyc.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class CourseLessonController {
     @Qualifier("courseLessonsServiceImpl")
     private CourseLessonsService courseLessonsService;
 
-    @PostMapping("/add")
+    @PostMapping("/addCourseLesson")
     public String addCourseLesson(@RequestBody CourseLesson courseLesson) {
         try {
             courseLessonsService.addCourseLesson(courseLesson);
@@ -29,13 +30,33 @@ public class CourseLessonController {
         return JsonUtils.getSuccessFlag();
     }
 
-    @GetMapping("/getAll")
-    public List<CourseLesson> getAllCourseLessons() {
-        return courseLessonsService.getAllCourseLessons();
+    @GetMapping("/allCourseLessons")
+    public ResultObj getAllCourseLessons() {
+        try {
+            List<CourseLesson> allCourseLessons = courseLessonsService.getAllCourseLessons();
+            return new ResultObj(1,allCourseLessons);
+        }catch (Exception e){
+            return new ResultObj(0);
+        }
     }
 
-    @GetMapping("/getByLimit")
-    public List<CourseLesson> getCourseLessonsByLimit(int start, int counts) {
-        return courseLessonsService.getCourseLessonsByLimit(start, counts);
+    @GetMapping("/courseLessonsByLimit")
+    public ResultObj getCourseLessonsByLimit(int start, int counts) {
+        try {
+            List<CourseLesson> courseLessonsByLimit = courseLessonsService.getCourseLessonsByLimit(start, counts);
+            return new ResultObj(1,courseLessonsByLimit);
+        }catch (Exception e){
+            return new ResultObj(0);
+        }
+    }
+
+    @GetMapping("/courseLessonsByUser")
+    public ResultObj getCourseLessonsByUser(long userId){
+        try {
+            List<CourseLesson> courseLessonsByUserId = courseLessonsService.getCourseLessonsByUserId(userId);
+            return new ResultObj(1,courseLessonsByUserId);
+        }catch (Exception e){
+            return new ResultObj(0);
+        }
     }
 }

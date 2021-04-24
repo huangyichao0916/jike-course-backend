@@ -13,4 +13,32 @@
     <select id="queryCourseLessonsByLimit" resultType="CourseLesson">
         SELECT * FROM tbl_course_lessons LIMIT #{start},#{counts}
     </select>
+    <select id="getCourseLessonByExeclude" resultType="CourseLesson">
+        SELECT
+            *
+        FROM
+            tbl_course_lessons AS tcl
+        WHERE
+            tcl.id NOT IN
+            (
+                SELECT tpclr.lesson_id FROM tbl_purchase_course_lesson_records AS tpclr WHERE tpclr.user_id = #{userId}
+            )
+            LIMIT #{start},#{counts}
+    </select>
+    <select id="getLessonsByUser" resultType="CourseLesson">
+        SELECT
+            tcl.*
+        FROM
+            (
+                SELECT
+                    tpclr.lesson_id AS l_id
+                FROM
+                    tbl_purchase_course_lesson_records AS tpclr
+                WHERE tpclr.user_id = #{userId}
+            ) AS l_ids
+                INNER JOIN
+            tbl_course_lessons AS tcl
+            ON
+            l_ids.l_id = tcl.id
+    </select>
 </mapper>

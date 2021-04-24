@@ -31,4 +31,9 @@ public class CourseLessonsServiceImpl implements CourseLessonsService{
     public List<CourseLesson> getCourseLessonsByLimit(int start, int counts) {
         return courseLessonMapper.queryCourseLessonsByLimit(start,counts);
     }
+
+    @Override
+    public List<CourseLesson> getCourseLessonsByUserId(long userId) {
+        return courseLessonMapper.getLessonsByUser(userId);
+    }
 }

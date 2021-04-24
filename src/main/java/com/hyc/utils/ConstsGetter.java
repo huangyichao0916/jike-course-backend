@@ -16,6 +16,7 @@ public class ConstsGetter {
         consts = new Properties();
         String filename = "consts.properties";
         String path = ConstsGetter.class.getClassLoader().getResource(filename).getPath();
+//        System.out.println(path);
         try {
             FileInputStream fis = new FileInputStream(path);
             consts.load(fis);
