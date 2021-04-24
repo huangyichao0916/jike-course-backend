@@ -50,6 +50,16 @@ public class CourseLessonController {
         }
     }
 
+    @GetMapping("/courseLessonByExeclude")
+    public ResultObj getCourseLessonByExeclude(long userId, int start, int counts){
+        try {
+            List<CourseLesson> courseLessonByExeclude = courseLessonsService.getCourseLessonByExeclude(userId, start, counts);
+            return new ResultObj(1,courseLessonByExeclude);
+        }catch (Exception e){
+            return new ResultObj(0);
+        }
+    }
+
     @GetMapping("/courseLessonsByUser")
     public ResultObj getCourseLessonsByUser(long userId){
         try {

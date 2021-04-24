@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class CourseLessonsServiceImpl implements CourseLessonsService{
+public class CourseLessonsServiceImpl implements CourseLessonsService {
     @Autowired
     @Qualifier("courseLessonMapper")
     private CourseLessonMapper courseLessonMapper;
@@ -29,11 +29,17 @@ public class CourseLessonsServiceImpl implements CourseLessonsService{
 
     @Override
     public List<CourseLesson> getCourseLessonsByLimit(int start, int counts) {
-        return courseLessonMapper.queryCourseLessonsByLimit(start,counts);
+        return courseLessonMapper.queryCourseLessonsByLimit(start, counts);
     }
 
     @Override
     public List<CourseLesson> getCourseLessonsByUserId(long userId) {
         return courseLessonMapper.getLessonsByUser(userId);
+    }
+
+    @Override
+    public List<CourseLesson> getCourseLessonByExeclude(long userId, int start, int counts) {
+        List<CourseLesson> courseLessonByExeclude = courseLessonMapper.getCourseLessonByExeclude(userId, start, counts);
+        return courseLessonByExeclude;
     }
 }

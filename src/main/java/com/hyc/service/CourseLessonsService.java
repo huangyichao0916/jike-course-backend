@@ -13,4 +13,6 @@ public interface CourseLessonsService {
     List<CourseLesson> getCourseLessonsByLimit(int start,int counts);
     //查询用户购买的所有课程
     List<CourseLesson> getCourseLessonsByUserId(long userId);
+    //查询用户没有购买过的、限定数量的课程
+    List<CourseLesson> getCourseLessonByExeclude(long userId,int start,int counts);
 }
