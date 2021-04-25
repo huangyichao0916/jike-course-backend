@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.dao.PracticeCampMapper">
+    <insert id="insertPracticeCamp" parameterType="PracticeCamp">
+        INSERT INTO tbl_practice_camps (camp_id,title,author_name,author_desc,camp_avatar,price_market,price_sale,begin_date)
+        VALUES(#{campId},#{title},#{authorName},#{authorDesc},#{campAvatar},#{priceMarket},#{priceSale},#{beginDate})
+    </insert>
+    <select id="queryAllPracticeCamps" resultType="PracticeCamp">
+        SELECT * FROM tbl_practice_camps
+    </select>
+    <select id="queryPracticeByUserId" resultType="PracticeCamp">
+        SELECT
+            tpc.*
+        FROM
+            ( SELECT tppcr.camp_id AS camp_id FROM tbl_purchase_practice_camps_records AS tppcr WHERE tppcr.user_id = #{userId}
+            ) AS camp_ids
+                INNER JOIN
+            tbl_practice_camps AS tpc
+                ON
+            camp_ids.camp_id = tpc.camp_id
+    </select>
+    <select id="queryPracticeByExeclude" resultType="PracticeCamp">
+        SELECT
+            tpc.*
+        FROM
+            tbl_practice_camps AS tpc
+        WHERE
+                tpc.camp_id NOT IN (
+                SELECT
+                    tppcr.camp_id
+                FROM
+                    tbl_purchase_practice_camps_records AS tppcr
+                WHERE
+                    tppcr.user_id = #{userId}
+            )
+    </select>
+</mapper>

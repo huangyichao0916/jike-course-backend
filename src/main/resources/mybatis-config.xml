@@ -11,11 +11,15 @@
         <typeAlias type="com.hyc.pojo.User" alias="User"/>
         <typeAlias type="com.hyc.pojo.RechargeRecord" alias="RechargeRecord"/>
         <typeAlias type="com.hyc.pojo.PurchaseCourseLessonRecord" alias="PurchaseCourseLessonRecord"/>
+        <typeAlias type="com.hyc.pojo.PracticeCamp" alias="PracticeCamp"/>
+        <typeAlias type="com.hyc.pojo.PurchasePracticeCampRecord" alias="PurchasePracticeCampRecord"/>
     </typeAliases>
     <mappers>
         <mapper class="com.hyc.dao.CourseLessonMapper"/>
         <mapper class="com.hyc.dao.UserMapper"/>
         <mapper class="com.hyc.dao.RechargeRecordMapper"/>
         <mapper class="com.hyc.dao.PurchaseCourseLessonRecordsMapper"/>
+        <mapper class="com.hyc.dao.PracticeCampMapper"/>
+        <mapper class="com.hyc.dao.JoinPracticeCampsRecordsMapper"/>
     </mappers>
 </configuration>
