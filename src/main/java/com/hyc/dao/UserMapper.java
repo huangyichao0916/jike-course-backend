@@ -13,4 +13,7 @@ public interface UserMapper {
 
     //用户充值
     int recharge(RechargeRecord record);
+
+    //用户购买课程后扣余额
+    int decreaseBalance(@Param("userId") long userId,@Param("money") int money);
 }

@@ -15,4 +15,6 @@ public interface UserService {
     void recharge(RechargeRecord record) throws Exception;
     //获取所有的充值记录
     List<RechargeRecord> getRecordsByUserId(long UserId);
+    //根据用户账号重新请求数据
+    User getUserInfoByAccountNumber(int accountNumber);
 }

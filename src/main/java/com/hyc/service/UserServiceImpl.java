@@ -88,4 +88,10 @@ public class UserServiceImpl implements UserService {
         return records;
     }
 
+    @Override
+    public User getUserInfoByAccountNumber(int accountNumber) {
+        User user = userMapper.queryUserByAccountNumber(accountNumber);
+        user.hidePassword();
+        return user;
+    }
 }

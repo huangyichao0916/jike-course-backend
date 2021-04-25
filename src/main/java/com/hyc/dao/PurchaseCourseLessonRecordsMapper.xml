@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.dao.PurchaseCourseLessonRecordsMapper">
+    <insert id="insertRecord" parameterType="PurchaseCourseLessonRecord">
+        INSERT INTO tbl_purchase_course_lesson_records(user_id,lesson_id) VALUES (#{userId},#{lessonId})
+    </insert>
+    <select id="queryAllRecords" resultType="PurchaseCourseLessonRecord">
+        SELECT * FROM tbl_purchase_course_lesson_records WHERE user_id = #{userId}
+    </select>
+</mapper>

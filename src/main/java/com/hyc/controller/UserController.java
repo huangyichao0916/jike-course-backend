@@ -29,7 +29,7 @@ public class UserController {
                 ResultObj res = userService.login(user);
                 if (res.getResultCode() == 1) {
                     HttpSession session = request.getSession();
-                    session.setAttribute("user", "uuuu");
+                    session.setAttribute("user", 123);
                 }
                 return res;
             } catch (Exception e) {
@@ -41,7 +41,7 @@ public class UserController {
                 ResultObj res = userService.register(user);
                 if (res.getResultCode() == 1) {
                     HttpSession session = request.getSession();
-                    session.setAttribute("user", "uuuu");
+                    session.setAttribute("user", 123);
                 }
                 return res;
             } catch (Exception e) {
@@ -50,8 +50,13 @@ public class UserController {
         }
     }
 
+    @GetMapping("/userInfo")
+    public ResultObj getUserInfo(int accountNumber) {
+        return new ResultObj(1, userService.getUserInfoByAccountNumber(accountNumber));
+    }
+
     @PostMapping("/recharge")
-    public ResultObj recharge(@RequestBody RechargeRecord record){
+    public ResultObj recharge(@RequestBody RechargeRecord record) {
         try {
             userService.recharge(record);
         } catch (Exception e) {
@@ -62,11 +67,11 @@ public class UserController {
     }
 
     @GetMapping("/rechargeRecords")
-    public ResultObj getRechargeRecords(long userId){
+    public ResultObj getRechargeRecords(long userId) {
         try {
             List<RechargeRecord> records = userService.getRecordsByUserId(userId);
-            return new ResultObj(1,records);
-        }catch (Exception e){
+            return new ResultObj(1, records);
+        } catch (Exception e) {
             return new ResultObj(0);
         }
     }
