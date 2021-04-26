@@ -35,6 +35,7 @@ buildNumber.properties
 /out/
 .idea_modules/
 webpack-temp/
+/web/static/
 
 ## File-based project format:
 *.iws
