@@ -14,6 +14,7 @@
         <typeAlias type="com.hyc.pojo.PracticeCamp" alias="PracticeCamp"/>
         <typeAlias type="com.hyc.pojo.PurchasePracticeCampRecord" alias="PurchasePracticeCampRecord"/>
         <typeAlias type="com.hyc.pojo.EverydayLesson" alias="EverydayLesson"/>
+        <typeAlias type="com.hyc.pojo.Choiceness" alias="Choiceness"/>
     </typeAliases>
     <mappers>
         <mapper class="com.hyc.dao.CourseLessonMapper"/>
@@ -23,5 +24,6 @@
         <mapper class="com.hyc.dao.PracticeCampMapper"/>
         <mapper class="com.hyc.dao.JoinPracticeCampsRecordsMapper"/>
         <mapper class="com.hyc.dao.EverydayLessonMapper"/>
+        <mapper class="com.hyc.dao.ChoicenessMapper"/>
     </mappers>
 </configuration>
