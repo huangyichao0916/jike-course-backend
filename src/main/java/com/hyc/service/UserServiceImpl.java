@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
         if (user1 != null) {
             return new ResultObj(2);
         } else {
-            user.setUserId(UUIDCreator.getAcountUUID(11));
+            user.setUserId(UUIDCreator.getLongUUID(11));
             user.setBalance(0);
             user.setAvatar(ConstsGetter.getConsts("avatarBaseUrl"));
             user.setSomethingNotRead(false);

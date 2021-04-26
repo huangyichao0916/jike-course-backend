@@ -65,7 +65,6 @@ public class PracticeCampController {
 
     @PostMapping("/joincamp")
     public ResultObj joinPracticeCamp(@RequestBody JoinPracticeCampParam param){
-        System.out.println(param);
         try {
             ResultObj resultObj = practiceCampService.joinPracticeCamp(param);
             return resultObj;

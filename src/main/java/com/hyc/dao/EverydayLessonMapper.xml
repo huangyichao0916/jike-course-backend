@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hyc.dao.EverydayLessonMapper">
+    <insert id="insertEverydayLesson" parameterType="EverydayLesson">
+        INSERT INTO tbl_everyday_lessons (lesson_id,title,sub_title,lesson_avatar)
+        VALUES(#{lessonId},#{title},#{subTitle},#{lessonAvatar})
+    </insert>
+    <select id="getAllEverydayLessons" resultType="EverydayLesson">
+        SELECT * FROM tbl_everyday_lessons;
+    </select>
+</mapper>

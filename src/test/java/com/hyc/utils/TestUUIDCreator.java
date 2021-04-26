@@ -5,6 +5,6 @@ import org.junit.Test;
 public class TestUUIDCreator {
     @Test
     public void testGetAcountUUID(){
-        System.out.println(UUIDCreator.getAcountUUID(11));
+        System.out.println(UUIDCreator.getLongUUID(11));
     }
 }
